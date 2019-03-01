@@ -2,6 +2,7 @@ public class Engine {
     private String type;
     private int id;
     private double rpm;
+    private boolean isActive = true;
 
     private Blade stepOneFan[];
     private Blade stepTwoFan[];
@@ -39,6 +40,7 @@ public class Engine {
 
     public void shutdown(){
         rpm = 0;
+        isActive = false;
     }
     public void increaseRPM(int rpm){
         this.rpm +=rpm;
