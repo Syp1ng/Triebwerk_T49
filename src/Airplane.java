@@ -5,8 +5,17 @@ public class Airplane {
 
     Engine[] engine;
 
-    public Airplane(Engine[] engine){
-        this.engine = engine;
+    public Cockpit getCockpit() {
+        return cockpit;
+    }
+
+    Cockpit cockpit;
+
+    public Airplane(){
+        this.engine = new Engine[4];
+        for(int i = 0;i<4;i++){
+        engine[i] = new Engine(i+1, "Rolls-Royce Trent 900");}
+        cockpit = new Cockpit();
     }
 
 }
