@@ -1,11 +1,10 @@
-import java.util.ArrayList;
-
 public class CommandShutdown implements ICommand {
-    ControlModul controlModul;
+    private ControlModul controlModul;
 
-    public CommandShutdown(ControlModul controlModus){
+    public CommandShutdown(ControlModul controlModul) {
         this.controlModul = controlModul;
     }
+
     public void execute() {
         controlModul.shutdown();
     }
