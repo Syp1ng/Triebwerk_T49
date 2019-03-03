@@ -11,11 +11,17 @@ public class Airplane {
 
     Cockpit cockpit;
 
-    public Airplane(){
-        this.engine = new Engine[4];
-        for(int i = 0;i<4;i++){
-        engine[i] = new Engine(i+1, "Rolls-Royce Trent 900");}
-        cockpit = new Cockpit();
+    public BordComputer getBordComputer() {
+        return bordComputer;
+    }
+
+    BordComputer bordComputer;
+
+    public Airplane(BordComputer bordComputer, Cockpit cockpit, Engine engine[]) {
+        this.bordComputer = bordComputer;
+        bordComputer.setAirplane(this);
+        this.cockpit = cockpit;
+        this.engine = engine;
     }
 
 }

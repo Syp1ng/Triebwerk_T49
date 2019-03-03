@@ -1,12 +1,17 @@
-public class CommandDecreaseRPM implements ICommand {
-    Engine engine;
-    int decreaseValue;
+import java.util.ArrayList;
 
-    public CommandDecreaseRPM(Engine engin, int decreaseValue){
-        this.engine = engine;
-        this.decreaseValue = decreaseValue;
+public class CommandDecreaseRPM implements ICommand {
+    ArrayList<ControlModul> controlModuls;
+    double decreaseValue;
+
+    public CommandDecreaseRPM(ArrayList<ControlModul> controlModuls, double increaseValue){
+        this.controlModuls = controlModuls;
+        this.decreaseValue = increaseValue;
     }
     public void execute() {
-        engine.decreaseRPM(decreaseValue);
+        for (ControlModul cm:controlModuls) {
+            cm.decreaseRPM(decreaseValue);
+        }
+
     }
 }

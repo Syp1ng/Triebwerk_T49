@@ -1,7 +1,37 @@
 public class Engine {
     private String type;
+    private ControlModul controlModul;
+
+    public Engine(int id, String type,ControlModul controlModul){
+        this.controlModul =controlModul;
+        controlModul.setEngine(this);
+        this.id = id;
+        this.type = type;
+    }
+
+    public int getId() {
+        return id;
+    }
+
     private int id;
     private double rpm;
+
+    public double getRpm() {
+        return rpm;
+    }
+
+    public void setRpm(double rpm) {
+        this.rpm = rpm;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
     private boolean isActive = true;
 
     private Blade stepOneFan[];
@@ -28,27 +58,6 @@ public class Engine {
         }
 
     }
-    public void fansActive(){
-        String s = entryForAir(); //(1)
-        s= stageOne(s);//(2)
-        s = burn(s);//(3)
-        s =exhaust(s);//(4)
-
-
-    }
-
-
-    public void shutdown(){
-        rpm = 0;
-        isActive = false;
-    }
-    public void increaseRPM(int rpm){
-        this.rpm +=rpm;
-        if(rpm>2550)rpm = 2550;
-    }
-    public void decreaseRPM(int rpm){
-        this.rpm -=rpm;
-    }
 
 
     public String  entryForAir(){
@@ -57,7 +66,7 @@ public class Engine {
 
 
 
-    private String stageOne(String s){
+    public String stageOne(String s){
         s="aaaabbaabbbbaa";
         return stageTwo(s);
     }
@@ -71,10 +80,10 @@ public class Engine {
         return s;
     }
 
-    private String burn(String s){
+    public String burn(String s){
         return "kkk"+s;
     }
-    private String exhaust(String s){
+    public String exhaust(String s){
         s="";
         for(int i=0;i<=(int)rpm*0.4;i++){
             s+="s";

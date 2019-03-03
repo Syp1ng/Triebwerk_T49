@@ -1,11 +1,13 @@
-public class CommandShutdown implements ICommand {
-    Engine engine;
+import java.util.ArrayList;
 
-    public CommandShutdown(Engine engine){
-        this.engine = engine;
+public class CommandShutdown implements ICommand {
+    ControlModul controlModul;
+
+    public CommandShutdown(ControlModul controlModus){
+        this.controlModul = controlModul;
     }
     public void execute() {
-        engine.shutdown();
+        controlModul.shutdown();
     }
 
 }

@@ -1,5 +1,11 @@
-public class Application {
-    public static void main(String[] args) {
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class ApplicationTest {
+    @Test
+    public void Test(){
         BordComputer bc = new BordComputer();
         ControlModul cm1 = new ControlModul(bc);
         ControlModul cm2 = new ControlModul(bc);
@@ -17,6 +23,16 @@ public class Application {
         Airplane ap = new Airplane(bc, new Cockpit(bc), engines);
         bc.startSimulation();
 
+        String s = "sssssssssssssssssssssssssssssssssssssssss";
+        if(cm1.engine.isActive()==true){
+        Assertions.assertEquals(40.00,cm1.engine.getRpm()*0.4 );
+        Assertions.assertEquals(s,cm1.fansActive());
+        }
+        else{ Assertions.assertEquals(40, cm2.engine.getRpm()*0.4);
+            Assertions.assertEquals(s, cm2.fansActive());
+
+        }
+
+
     }
 }
-

@@ -1,21 +1,16 @@
-public class Cockpit extends Airplane {
-    ICommand command;
+public class Cockpit {
     BordComputer bordComputer;
 
-    public Cockpit(){
-        bordComputer = new BordComputer();
+    public Cockpit(BordComputer bordComputer){
+        this.bordComputer = bordComputer;
     }
-
-    public void setCommand(ICommand command){
-        this.command = command;
-    }
-
 
 
     public void StartButton(){
         bordComputer.startSimulation();
     }
-    public void ShutdownButton(Engine engine){
-        setCommand(new CommandShutdown(engine));
+    public void ShutdownEngineButton(int i){
+        System.out.println("Pilot: Shutdown engine number " + i);
+        bordComputer.shutdown(i);
     }
 }
