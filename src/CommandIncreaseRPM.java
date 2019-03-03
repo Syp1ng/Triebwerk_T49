@@ -1,15 +1,16 @@
 import java.util.ArrayList;
 
 public class CommandIncreaseRPM implements ICommand {
-    ArrayList<ControlModul> controlModuls;
-    double increaseValue;
+    private ArrayList<ControlModul> controlModuls;
+    private double increaseValue;
 
-    public CommandIncreaseRPM(ArrayList<ControlModul> controlModuls, double increaseValue){
+    public CommandIncreaseRPM(ArrayList<ControlModul> controlModuls, double increaseValue) {
         this.controlModuls = controlModuls;
         this.increaseValue = increaseValue;
     }
+
     public void execute() {
-        for (ControlModul cm:controlModuls) {
+        for (ControlModul cm : controlModuls) {
             cm.increaseRPM(increaseValue);
         }
 

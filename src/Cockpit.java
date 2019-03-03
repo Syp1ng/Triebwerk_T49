@@ -1,15 +1,16 @@
 public class Cockpit {
-    BordComputer bordComputer;
+    private BordComputer bordComputer;
 
-    public Cockpit(BordComputer bordComputer){
+    public Cockpit(BordComputer bordComputer) {
         this.bordComputer = bordComputer;
     }
 
 
-    public void StartButton(){
+    public void startButton() {
         bordComputer.startSimulation();
     }
-    public void ShutdownEngineButton(int i){
+
+    public void shutdownEngineButton(int i) {
         System.out.println("Pilot: Shutdown engine number " + i);
         bordComputer.shutdown(i);
     }
